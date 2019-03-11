@@ -118,10 +118,3 @@ class GSIPN(object):
 				else:
 					self.fire_transition(enabled_exp_transitions[0])
 		return markings
-
-
-
-
-
-
-
