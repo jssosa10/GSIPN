@@ -20,11 +20,14 @@ def simulate(net):
 	return np.mean(res)
 
 def create_net(netID,params):
-	nets[netID](params);
+	return nets[netID](params);
 
 def create_net_fixed(new_parameter,type,netID):
-	params = pm.createParameters(type,new_parameter)
+	params = pm.create_parameters(type,new_parameter)
 	return create_net(netID, params)
 
 def generate_results(new_parameters,type,netID):
 	return [simulate(create_net_fixed(new_parameter,type,netID)) for new_parameter in new_parameters]
+
+for x,y in create_net_fixed(0.1,'mttr_du','2oo3').transitions.items():
+	print x,y

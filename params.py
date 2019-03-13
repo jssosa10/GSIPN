@@ -17,7 +17,7 @@ default_params = {
 	'mttr_dd': 0.1,
 	'mdd': 0.1
 }
-def create_parameters(self,type,param):
+def create_parameters(type,param):
 	params = default_params
 	params[type]=param
 	params = recalculate(params)
@@ -25,6 +25,3 @@ def create_parameters(self,type,param):
 
 def recalculate(params):
 	return params
-
-print default_params
-print default_params['tao']
