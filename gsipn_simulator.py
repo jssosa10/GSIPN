@@ -11,12 +11,13 @@ nets['2oo3'] = nn.create2oo3
 
 def simulate(net):
 	res = []
-	for x in range(1000):
+	for x in range(100):
 		marks = net.simulate(1000)
 		z = 0
 		for mark in marks:
 			z+= mark['U']*1.0/len(marks)
 		res.append(z)
+		##print 'sim',x
 	return np.mean(res)
 
 def create_net(netID,params):
@@ -24,10 +25,11 @@ def create_net(netID,params):
 
 def create_net_fixed(new_parameter,type,netID):
 	params = pm.create_parameters(type,new_parameter)
+	#print params
 	return create_net(netID, params)
 
 def generate_results(new_parameters,type,netID):
 	return [simulate(create_net_fixed(new_parameter,type,netID)) for new_parameter in new_parameters]
 
-for x,y in create_net_fixed(0.1,'mttr_du','2oo3').transitions.items():
-	print x,y
+##for x,y in create_net_fixed(0.1,'mttr_du','2oo3').transitions.items():
+##	print x,y

@@ -85,6 +85,7 @@ class GSIPN(object):
 	def simulate(self, steps, report=1, simulate_wait=False):
 		markings = []
 		for step in range(steps):
+			##print 'step',step
 			if step % report == 0:
 				markings.append(self.get_current_markings())
 
