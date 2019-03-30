@@ -13,7 +13,7 @@ default_params = {
 	'tao': 8760,
 	'DC': 0.6,
 	'SFF': 0.61,
-	'beta': 0.4,
+	'beta': 0.1,
 	'mttr_du': 8,
 	'mttr_dd': 8,
 	'mdd': 0.0001
