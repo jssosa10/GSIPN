@@ -1,10 +1,10 @@
 default_params = {
-	'lambda_d': 0.0007,
+	'lambda_d': 0.000011,
 	'lambda_dd': 0.1,
 	'lambda_du': 0.1,
 	'lambda_sd': 0.1,
 	'lambda_su': 0.1,
-	'lambda_de': 0.00001,
+	'lambda_de': 1/8760.0,
 	'mu_dd': 0.1,
 	'mu_du': 0.1,
 	'mmu_sd': 0.1,

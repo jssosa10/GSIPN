@@ -4,7 +4,7 @@ lambdas=[1.0/x for x in taos]
 mdd = [0.0001,0.001,0.01,0.1]
 dc = [0.0,0.6,0.9,0.99]
 beta = [0.01,0.05,0.1]
-for x in ['1oo1','1oo2','2oo3']:
+for x in ['242']:
 	res = sm.generate_results(taos,'tao',x)
 	print x,'tao',res
 	res = sm.generate_results(lambdas,'lambda_de',x)

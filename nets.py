@@ -117,3 +117,36 @@ def create2oo3(params):
 	net.add_varible('r',3)
 	net.add_varible('ccf',False)
 	return net
+
+def create242(params):
+	net = pn.GSIPN()
+	net = createChannel(1,net,params)
+	net = createChannel(2,net,params)
+	net = createChannel(3,net,params)
+	net = createChannel(4,net,params)
+	net = createChannel(5,net,params)
+	net = createChannel(6,net,params)
+	func_predicate = '(((c1 or c2 or c3) and c4) or c5 or c6)'
+	neg_func_predicate = 'not (((c1 or c2 or c3) and c4) or c5 or c6)'
+	ccf_predicate = 'c1 and c2 and c3 and c4 and c5 and c6'
+	ccf_assertion = 'ccf1=False\nccf2=False\nccf3=False\nccf4=False\nccf5=False\nccf6=False'
+	net.add_place('A',1)
+	net.add_place('U',0)
+	net.add_place('NCCF',1)
+	net.add_place('CCF',0)
+	net.add_transition('t1',t_class='exp',rate=params['lambda_de'], predicate = neg_func_predicate)
+	net.add_transition('t2',t_class='exp',rate=params['mu_de'],predicate = func_predicate)
+	net.add_transition('t3',t_class='exp',rate=params['lambda_dd']*params['beta'], predicate = ccf_predicate, assertion = 'ccf = True')
+	net.add_transition('t4',predicate = ccf_predicate, assertion = ccf_assertion)
+	net.add_inArc('A','t1')
+	net.add_outArc('U','t1')
+	net.add_inArc('U','t2')
+	net.add_outArc('A','t2')
+	net.add_inArc('NCCF','t3')
+	net.add_outArc('CCF','t3')
+	net.add_inArc('CCF','t4')
+	net.add_outArc('NCCF','t4')
+	net.add_varible('r',8)
+	net.add_varible('ccf',False)
+	return net
+

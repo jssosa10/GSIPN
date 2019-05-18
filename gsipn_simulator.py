@@ -7,6 +7,7 @@ nets = {}
 nets['1oo1'] = nn.create1oo1
 nets['1oo2'] = nn.create1oo2
 nets['2oo3'] = nn.create2oo3
+nets['242'] = nn.create242
 
 
 def simulate(net):
